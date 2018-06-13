@@ -1,0 +1,50 @@
+---
+title: "Data Tidying Project"
+author: "Jane Doe"
+date: "6/13/2018"
+output: html_document
+---
+
+
+
+```{r setup, include=FALSE}
+## install packages if necessary
+list.of.packages <- c("httr", "readxl")
+new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])]
+if(length(new.packages)) install.packages(new.packages)
+
+## load packages
+library("httr")
+library("readxl")
+```
+
+### Get Data
+
+[Data Set 1](https://data.world/retail/department-store-sales): Sales from the Retail Trade and Food Services Report from the US Census. This dataset only covers Department Stores, though the report covers a wide range of retail types. [1992-2016]
+
+[Data Set 2](https://data.world/garyhoov/retail-sales-growth) US Retail Sales by Store Type with Growth Rate [2009-2014]
+
+```{r data, warning=FALSE} 
+#1992-2016
+#https://data.world/retail/department-store-sales
+
+GET("https://query.data.world/s/gdk7iwtlisq6vkktmybqqr7hjjty5s", write_disk(tf <- tempfile(fileext = ".xls")))
+df1 <- read_excel(tf)
+
+#2009-2014
+# https://data.world/garyhoov/retail-sales-growth
+GET("https://query.data.world/s/py7kinxvyuxjpzwdjs2ti4wdmui6bi", write_disk(tf <- tempfile(fileext = ".xls")))
+df2 <- read_excel(tf)
+```
+
+### Save Raw Data
+
+```{r save-data, warning=FALSE} 
+
+```
+
+### Wrangle Data
+
+```{r save-data, warning=FALSE} 
+
+```
